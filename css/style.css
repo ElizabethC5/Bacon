@@ -1,0 +1,262 @@
+/*f This makes the site keep its size on small screens like cell phones so that the text is not too small to read */
+@viewport {
+  width: device-width ;
+  zoom: 1.0 ;
+}
+
+.background {
+  background: url(../wildtextures_vintage_pine_tabletop.gif) repeat;
+  border: 2px solid black;
+}
+
+/* This .transbox creates a faded look for the background */
+.transbox {
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  /* For IE8 and earlier */
+}
+
+
+/* This section creates container that is flexible for different screen sizes. */
+.container {
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+    justify-content:space-evenly;
+    align-items:stretch;
+
+}
+
+
+.left {order:1; flex-basis:100%; height:550px}
+.right {order:2;flex-basis:100%; height:550px;}
+
+/* This section is for when site is viewed on wider screen */
+
+@media screen and (min-width:600px) {
+   .container {
+       flex-wrap:nowrap;
+   }
+
+    .left {
+        flex-basis:300px;
+        order:1;
+    }
+    .right {
+        flex-basis:300px;
+        order:2;
+    }
+}
+
+
+
+
+h1 {
+  color: #8f1d14;
+  text-align: center;
+  padding-right: 4em;
+}
+
+/* This is the Vertical Sliding effect */
+.slidingVertical {
+  display: inline;
+  text-indent: 10px;
+}
+
+.slidingVertical span {
+  animation: topToBottom 7.5s linear infinite 0s;
+  -ms-animation: topToBottom 7.5s linear infinite 0s;
+  -webkit-animation: topToBottom 7.5s linear infinite 0s;
+  color: red;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+.slidingVertical span:nth-child(2) {
+  animation-delay: 2.5s;
+  -ms-animation-delay: 2.5s;
+  -webkit-animation-delay: 2.5s;
+}
+
+.slidingVertical span:nth-child(3) {
+  animation-delay: 5s;
+  -ms-animation-delay: 5s;
+  -webkit-animation-delay: 5s;
+}
+
+/* this is the toptobottom animation */
+@-moz-keyframes topToBottom {
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 0;
+    -moz-transform: translateY(-50px);
+  }
+
+  10% {
+    opacity: 1;
+    -moz-transform: translateY(0px);
+  }
+
+  25% {
+    opacity: 1;
+    -moz-transform: translateY(0px);
+  }
+
+  30% {
+    opacity: 0;
+    -moz-transform: translateY(50px);
+  }
+
+  80% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes topToBottom {
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 0;
+    -webkit-transform: translateY(-50px);
+  }
+
+  10% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+  }
+
+  25% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+  }
+
+  30% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+  }
+
+  80% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes topToBottom {
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 0;
+    -ms-transform: translateY(-50px);
+  }
+
+  10% {
+    opacity: 1;
+    -ms-transform: translateY(0px);
+  }
+
+  25% {
+    opacity: 1;
+    -ms-transform: translateY(0px);
+  }
+
+  30% {
+    opacity: 0;
+    -ms-transform: translateY(50px);
+  }
+
+  80% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* this text p is necessary for text in middle column */
+.text1 {
+
+  font-size: 1.5em;
+  width: 15em;
+margin:0 0 2em 0;
+  color: #000000;
+  display: inline-block;
+}
+
+/* this .div and .grow:hover enable the image in center column to change sizes when hovered over. */
+.div {
+  transition: all 0.8s ease;
+}
+
+.grow:hover {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+/* this centers image in middle column and determines its size by width */
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centertext {
+
+text-align: center;
+
+}
+
+
+.heading1 {
+  color: #8f1d14;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+/* this is to regulate text in second column */
+.text2 {
+  text-align: left;
+  font-size: 1em;
+  font-weight: bold;
+  color: #000000;
+  margin: 10px;
+  width: 500px;
+}
+
+.text3 {
+text-align: left;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #8f1d14;
+
+  width: 500px;
+}
+
+
+
+/* this is necessary for columns to display correctly, otherwise the background disappears,
+whole page may disappear. */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
